@@ -25,10 +25,12 @@ public class NewTash {
     // queueDeclare(string queue,boolean durable,boolean exclusive)  队列名称 ，是否持久化，默认存放在内存中如果rabbitMQ重启会丢失
         channel.queueDeclare(TASH_QUEUE_NAME, true, false, false, null);
         String message = getMessage(args);
-        channel.basicPublish("", TASH_QUEUE_NAME, MessageProperties.PERSISTENT_TEXT_PLAIN,
+        channel.basicPublish("", TASH_QUEUE_NAME,  MessageProperties.PERSISTENT_TEXT_PLAIN,
                 message.getBytes("UTF-8")
         );
         System.out.println(" [x] Sent '" + message + "'");
+        channel.close();
+        connection.close();
     }
 
     private static String getMessage(String[] strings) {

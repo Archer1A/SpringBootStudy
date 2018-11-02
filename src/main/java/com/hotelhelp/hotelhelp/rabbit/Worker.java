@@ -43,7 +43,7 @@ public class Worker {
         for (char ch : task.toCharArray()) {
             if (ch == '.') {
                 try {
-                    Thread.sleep(1);
+                    Thread.sleep(1000);
                 } catch (InterruptedException _ignored) {
                     Thread.currentThread().interrupt();
                 }
