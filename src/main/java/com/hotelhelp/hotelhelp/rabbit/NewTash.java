@@ -9,8 +9,11 @@ import java.io.IOException;
 import java.util.concurrent.TimeoutException;
 
 /**
- * 1. 使用task_Queue 声明了另外一个Queue,因为RabbitMQ 不容许声明2个相同的名称，配置不同的Queue
- * 2.
+ * 1、使用“task_queue”声明了另一个Queue，因为RabbitMQ不容许声明2个相同名称、配置不同的Queue
+ *
+ * 2、使"task_queue"的Queue的durable的属性为true，即使消息队列durable
+ *
+ * 3、使用MessageProperties.PERSISTENT_TEXT_PLAIN使消息durable
  */
 public class NewTash {
 
